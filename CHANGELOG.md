@@ -11,8 +11,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - `coalesce` task reading each item through the first of several alternative tasks yielding anything for it, so a pipe
   falls back from a preferred reading to the next one item by item, keeping source order
-- Type guard support in `filter`, narrowing the retained items to the type the guard admits
-- Type guard support in `when`, narrowing the items routed to the first task to the type the guard admits
+- Type guard support in `filter` and `when`, narrowing the items retained by `filter`, or routed by `when` to its first
+  task, to the type the guard admits, so later stages of the pipe read them without casts or further checks
+
+### Changed
+
+- **Breaking**: Upgrade `@metreeca/core` to `^0.14.0`; projects using Core alongside this package raise their own
+  `@metreeca/core` dependency to `^0.14.0` as well, so that both packages share a single copy of Core
 
 ## [0.12.0](https://github.com/metreeca/flow/compare/v0.11.1...v0.12.0) - 2026-10-19
 
