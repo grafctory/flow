@@ -48,9 +48,9 @@
  * pass, however repeatable the source behind it:
  *
  * ```typescript
- * import { pipe } from '@metreeca/flow';
- * import { items } from '@metreeca/flow/feeds';
- * import type { Sink } from '@metreeca/flow';
+ * import { pipe } from '@grafctory/flow';
+ * import { items } from '@grafctory/flow/feeds';
+ * import type { Sink } from '@grafctory/flow';
  *
  * function histogram<V>(): Sink<V, Map<V, number>> {
  *   return async source => {

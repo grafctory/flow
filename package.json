@@ -1,14 +1,14 @@
 {
-  "name": "@metreeca/flow",
+  "name": "@grafctory/flow",
   "version": "0.13.1",
   "description": "Composable primitives for asynchronous data flows.",
   "keywords": [
     "typescript",
     "utilities"
   ],
-  "homepage": "https://metreeca.github.io/flow/",
+  "homepage": "https://grafctory.github.io/flow/",
   "bugs": {
-    "url": "https://github.com/metreeca/flow/issues",
+    "url": "https://github.com/grafctory/flow/issues",
     "email": "info@metreeca.com"
   },
   "license": "Apache-2.0",
@@ -19,25 +19,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/metreeca/flow.git"
+    "url": "git+https://github.com/grafctory/flow.git"
   },
   "type": "module",
   "sideEffects": false,
   "exports": {
     ".": {
-      "@metreeca/source": "./src/index.ts",
+      "@grafctory/source": "./src/index.ts",
       "default": "./dist/index.js"
     },
     "./feeds": {
-      "@metreeca/source": "./src/feeds/index.ts",
+      "@grafctory/source": "./src/feeds/index.ts",
       "default": "./dist/feeds/index.js"
     },
     "./tasks": {
-      "@metreeca/source": "./src/tasks/index.ts",
+      "@grafctory/source": "./src/tasks/index.ts",
       "default": "./dist/tasks/index.js"
     },
     "./sinks": {
-      "@metreeca/source": "./src/sinks/index.ts",
+      "@grafctory/source": "./src/sinks/index.ts",
       "default": "./dist/sinks/index.js"
     }
   },
@@ -58,10 +58,10 @@
     "proof": "ush up npx typedoc --watch + ush ws --open docs"
   },
   "dependencies": {
-    "@metreeca/core": "^0.14.0"
+    "@grafctory/core": "^0.14.0"
   },
   "devDependencies": {
-    "@metreeca/rack": "^0.8.0",
+    "@grafctory/rack": "^0.8.0",
     "typedoc": "^0.28.14",
     "typescript": "^6.0.3",
     "vitest": "^4.0.13"

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { sleep } from "@metreeca/core/async";
+import { sleep } from "@grafctory/core/async";
 import { describe, expect, it } from "vitest";
 import { pipe } from "../index.js";
 import { find, toArray } from "../sinks/index.js";

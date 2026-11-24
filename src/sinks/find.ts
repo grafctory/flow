@@ -15,7 +15,7 @@
  */
 
 import { Sink } from "../index.js";
-import type { Optional } from "@metreeca/core";
+import type { Optional } from "@grafctory/core";
 
 
 /**

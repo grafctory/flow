@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Optional } from "@metreeca/core";
+import { Optional } from "@grafctory/core";
 import { items } from "../feeds/items.js";
 import type { Feed, Task } from "../index.js";
 

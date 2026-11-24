@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { by, descending } from "@metreeca/core/order";
+import { by, descending } from "@grafctory/core/order";
 import { describe, expect, it } from "vitest";
 import { items } from "../feeds/index.js";
 import { toArray } from "../sinks/index.js";

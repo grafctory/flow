@@ -37,10 +37,10 @@
  * **Custom Feeds** open a pipe over a source of your own:
  *
  * ```typescript
- * import { pipe } from '@metreeca/flow';
- * import { items } from '@metreeca/flow/feeds';
- * import { toArray } from '@metreeca/flow/sinks';
- * import type { Feed } from '@metreeca/flow';
+ * import { pipe } from '@grafctory/flow';
+ * import { items } from '@grafctory/flow/feeds';
+ * import { toArray } from '@grafctory/flow/sinks';
+ * import type { Feed } from '@grafctory/flow';
  *
  * function repeat<V>(value: V, count: number): Feed<V> {
  *   return items((async function* () {

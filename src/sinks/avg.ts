@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { add, div } from "@metreeca/core/numbers";
+import { add, div } from "@grafctory/core/numbers";
 import { Sink } from "../index.js";
 
 

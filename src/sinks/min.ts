@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ascending, type Comparator } from "@metreeca/core/order";
+import { ascending, type Comparator } from "@grafctory/core/order";
 import { Sink } from "../index.js";
 import { reduce } from "./reduce.js";
 
@@ -37,7 +37,7 @@ import { reduce } from "./reduce.js";
  *
  * > [!TIP]
  * >
- * > The {@link https://metreeca.github.io/core/modules/order.html order} module of `@metreeca/core` provides helper
+ * > The {@link https://grafctory.github.io/core/modules/order.html order} module of `@grafctory/core` provides helper
  * > functions for assembling complex ranking criteria.
  *
  * @typeParam V The type of items in the feed

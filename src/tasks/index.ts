@@ -62,10 +62,10 @@
  * easily written as an async generator handed to {@link feeds.items items()}, with items to be dropped left unyielded:
  *
  * ```typescript
- * import { pipe } from '@metreeca/flow';
- * import { items } from '@metreeca/flow/feeds';
- * import { toArray } from '@metreeca/flow/sinks';
- * import type { Task } from '@metreeca/flow';
+ * import { pipe } from '@grafctory/flow';
+ * import { items } from '@grafctory/flow/feeds';
+ * import { toArray } from '@grafctory/flow/sinks';
+ * import type { Task } from '@grafctory/flow';
  *
  * function double<V extends number>(): Task<V, V> {
  *   return source => items((async function* () {

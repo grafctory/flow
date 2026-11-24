@@ -1,10 +1,10 @@
-# @metreeca/flow
+# @grafctory/flow
 
-[![npm](https://img.shields.io/npm/v/@metreeca/flow)](https://www.npmjs.com/package/@metreeca/flow)
+[![npm](https://img.shields.io/npm/v/@grafctory/flow)](https://www.npmjs.com/package/@grafctory/flow)
 
 Composable primitives for asynchronous data flows.
 
-**@metreeca/flow** replaces the boilerplate of async data processing with declarative data flows, read as one unit
+**@grafctory/flow** replaces the boilerplate of async data processing with declarative data flows, read as one unit
 from source to result:
 
 - **Focused API**: small operator set covering the common async iterable operations and composing with a natural syntax
@@ -16,7 +16,7 @@ from source to result:
 # Installation
 
 ```shell
-npm install @metreeca/flow
+npm install @grafctory/flow
 ```
 
 > [!WARNING]
@@ -29,18 +29,18 @@ npm install @metreeca/flow
 > [!NOTE]
 >
 > This section introduces essential concepts and common patterns: see the
-> [API reference](https://metreeca.github.io/flow/) for complete coverage.
+> [API reference](https://grafctory.github.io/flow/) for complete coverage.
 
-**@metreeca/flow** builds on three composable [abstractions](https://metreeca.github.io/flow/modules/index.html):
+**@grafctory/flow** builds on three composable [abstractions](https://grafctory.github.io/flow/modules/index.html):
 
-- **[Feeds](https://metreeca.github.io/flow/modules/feeds.html)**: carry the items and accept the steps advancing the
+- **[Feeds](https://grafctory.github.io/flow/modules/feeds.html)**: carry the items and accept the steps advancing the
   pipe, opened from values and data sources
-- **[Tasks](https://metreeca.github.io/flow/modules/tasks.html)**: intermediate operations transforming, filtering or
+- **[Tasks](https://grafctory.github.io/flow/modules/tasks.html)**: intermediate operations transforming, filtering or
   reshaping the items
-- **[Sinks](https://metreeca.github.io/flow/modules/sinks.html)**: terminal operations consuming the items and computing
+- **[Sinks](https://grafctory.github.io/flow/modules/sinks.html)**: terminal operations consuming the items and computing
   the final result
 
-A **[pipe](https://metreeca.github.io/flow/functions/pipe.html)** composes a feed, any number of tasks and an optional
+A **[pipe](https://grafctory.github.io/flow/functions/pipe.html)** composes a feed, any number of tasks and an optional
 sink. Closed by a sink, it resolves to the final result; left open, it hands back its final feed, iterated with
 `for await` to draw the items it carries.
 
@@ -53,10 +53,10 @@ The three combine into a single pipe. This example draws a set of URLs, retrieve
 response as JSON and collects the documents:
 
 ```typescript
-import { pipe } from '@metreeca/flow';
-import { items } from '@metreeca/flow/feeds';
-import { toArray } from '@metreeca/flow/sinks';
-import { fork, map } from '@metreeca/flow/tasks';
+import { pipe } from '@grafctory/flow';
+import { items } from '@grafctory/flow/feeds';
+import { toArray } from '@grafctory/flow/sinks';
+import { fork, map } from '@grafctory/flow/tasks';
 
 const urls = [1, 2, 3, 4, 5, 6].map(page => `https://example.com/docs?page=${page}`);
 
@@ -75,7 +75,7 @@ so a custom one either draws the items itself or passes the feed on to steps alr
 
 ## Creating Feeds
 
-Start a pipe with a [feed](https://metreeca.github.io/flow/modules/feeds.html), adapting values and data sources into a
+Start a pipe with a [feed](https://grafctory.github.io/flow/modules/feeds.html), adapting values and data sources into a
 feed ready for composition.
 
 ### Generators
@@ -83,7 +83,7 @@ feed ready for composition.
 Open a feed over values, ranges or an external source drawn one item at a time.
 
 ```typescript
-import { done, inlet, items, range } from '@metreeca/flow/feeds';
+import { done, inlet, items, range } from '@grafctory/flow/feeds';
 
 items([1, 2, 3, 4, 5]);                         // from arrays
 items(new Set([1, 2, 3]));                      // from iterables
@@ -109,7 +109,7 @@ in a pipe or in place as `flat(items([a, b]))`, or by naming them at the call si
 
 ## Transforming Data
 
-Chain [tasks](https://metreeca.github.io/flow/modules/tasks.html) to reshape the feed and map its items.
+Chain [tasks](https://grafctory.github.io/flow/modules/tasks.html) to reshape the feed and map its items.
 
 ### Operators
 
@@ -117,11 +117,11 @@ Select, reorder and inspect items, leaving their type unchanged unless `trim()` 
 
 > [!TIP]
 >
-> The [order](https://metreeca.github.io/core/modules/order.html) module of `@metreeca/core` provides helper functions
+> The [order](https://grafctory.github.io/core/modules/order.html) module of `@grafctory/core` provides helper functions
 > for assembling complex sorting criteria.
 
 ```typescript
-import { distinct, filter, map, peek, skip, sort, take, trim } from '@metreeca/flow/tasks';
+import { distinct, filter, map, peek, skip, sort, take, trim } from '@grafctory/flow/tasks';
 
 await pipe(
 	(items([1, 2, 3, 4, 5]))
@@ -188,7 +188,7 @@ await pipe(
 Map items to values of a different type, either one by one, in groups, or over the feed as a whole.
 
 ```typescript
-import { batch, chain, group, map } from '@metreeca/flow/tasks';
+import { batch, chain, group, map } from '@grafctory/flow/tasks';
 
 await pipe(
 	(items([1, 2, 3]))
@@ -231,7 +231,7 @@ condition chooses between for each item, the first of several alternatives yield
 sources named at the call site of the task splicing them in, each contributing its items alongside the feed.
 
 ```typescript
-import { coalesce, filter, flat, fork, join, map, mix, take, tee, when } from '@metreeca/flow/tasks';
+import { coalesce, filter, flat, fork, join, map, mix, take, tee, when } from '@grafctory/flow/tasks';
 
 await pipe(
 	(items([items([1, 2]), items([3, 4])]))
@@ -326,7 +326,7 @@ See [Concurrent Processing](#concurrent-processing) for the bounds `fork()` sets
 
 ## Consuming Data
 
-Close a pipe with a [sink](https://metreeca.github.io/flow/modules/sinks.html), consuming the items and computing the
+Close a pipe with a [sink](https://grafctory.github.io/flow/modules/sinks.html), consuming the items and computing the
 final result.
 
 ### Predicates
@@ -334,7 +334,7 @@ final result.
 Test the feed against a condition, stopping as soon as the outcome is decided.
 
 ```typescript
-import { every, some } from '@metreeca/flow/sinks';
+import { every, some } from '@grafctory/flow/sinks';
 
 await pipe(
 	(items([1, 2, 3]))
@@ -356,11 +356,11 @@ ones.
 
 > [!TIP]
 >
-> The [order](https://metreeca.github.io/core/modules/order.html) module of `@metreeca/core` provides helper functions
+> The [order](https://grafctory.github.io/core/modules/order.html) module of `@grafctory/core` provides helper functions
 > for assembling complex ranking criteria.
 
 ```typescript
-import { avg, count, max, min, sum } from '@metreeca/flow/sinks';
+import { avg, count, max, min, sum } from '@grafctory/flow/sinks';
 
 await pipe(
 	(items([1, 2, 3, 4, 5]))
@@ -401,8 +401,8 @@ Where the feed carries no item, `find()` resolves to `undefined`, leaving the ch
 `seek()` fails, so the item it hands back is usable as is.
 
 ```typescript
-import { find, reduce, seek } from '@metreeca/flow/sinks';
-import { filter } from '@metreeca/flow/tasks';
+import { find, reduce, seek } from '@grafctory/flow/sinks';
+import { filter } from '@grafctory/flow/tasks';
 
 await pipe(
 	(items([1, 2, 3, 4]))
@@ -428,7 +428,7 @@ Collect items into a container. The result is deeply immutable, freezing both th
 values collected into it.
 
 ```typescript
-import { toArray, toMap, toObject, toSet, toString } from '@metreeca/flow/sinks';
+import { toArray, toMap, toObject, toSet, toString } from '@grafctory/flow/sinks';
 
 await pipe(
 	(items([1, 2, 3]))
@@ -461,7 +461,7 @@ await pipe(
 Consume the feed for its side effects, resolving to the number of items processed.
 
 ```typescript
-import { each } from '@metreeca/flow/sinks';
+import { each } from '@grafctory/flow/sinks';
 
 await pipe(
 	(items([1, 2, 3]))
@@ -478,9 +478,9 @@ code is ready for them. Bracketing the composition in `pipe()` hands back the fe
 exactly as a closed pipe does.
 
 ```typescript
-import { pipe } from '@metreeca/flow';
-import { items } from '@metreeca/flow/feeds';
-import { filter } from '@metreeca/flow/tasks';
+import { pipe } from '@grafctory/flow';
+import { items } from '@grafctory/flow/feeds';
+import { filter } from '@grafctory/flow/tasks';
 
 const evens = pipe(
 	(items([1, 2, 3, 4]))
@@ -519,7 +519,7 @@ Two hazards follow, the first on infinite feeds alone, the second on any feed la
 
 Batch by a positive size, cap the runs of a fork, or bound the feed upstream.
 
-The [API reference](https://metreeca.github.io/flow/) classifies every feed, task and sink along four axes:
+The [API reference](https://grafctory.github.io/flow/) classifies every feed, task and sink along four axes:
 
 - **bounded** or **infinite**, for how far a feed goes
 - **incremental** or **exhaustive**, for how much of a feed a task or sink draws before emitting or resolving
@@ -527,10 +527,10 @@ The [API reference](https://metreeca.github.io/flow/) classifies every feed, tas
 - **stateless** or **stateful**, for whether the outcome depends on the items drawn before it
 
 ```typescript
-import { inlet } from '@metreeca/flow/feeds';
-import { filter, take } from '@metreeca/flow/tasks';
-import { each } from '@metreeca/flow/sinks';
-import { pipe } from '@metreeca/flow';
+import { inlet } from '@grafctory/flow/feeds';
+import { filter, take } from '@grafctory/flow/tasks';
+import { each } from '@grafctory/flow/sinks';
+import { pipe } from '@grafctory/flow';
 
 await pipe(
 	(inlet(() => Math.random()))
@@ -567,14 +567,14 @@ Where the state belongs to one item rather than to the feed, open a pipe per ite
 within each nested feed in turn, as `join(map(feed => feed(fork(…))))`, bounding the work carried out inside it.
 
 Control the rate at which work is submitted with utilities from the
-[async](https://metreeca.github.io/core/modules/async.html) module of `@metreeca/core`, such as throttling:
+[async](https://grafctory.github.io/core/modules/async.html) module of `@grafctory/core`, such as throttling:
 
 ```typescript
-import { createThrottle } from '@metreeca/core/async';
-import { pipe } from '@metreeca/flow';
-import { items } from '@metreeca/flow/feeds';
-import { each } from '@metreeca/flow/sinks';
-import { fork } from '@metreeca/flow/tasks';
+import { createThrottle } from '@grafctory/core/async';
+import { pipe } from '@grafctory/flow';
+import { items } from '@grafctory/flow/feeds';
+import { each } from '@grafctory/flow/sinks';
+import { fork } from '@grafctory/flow/tasks';
 
 const throttle = createThrottle({ minimum: 1000 });  // at most 1 request per second
 
@@ -590,10 +590,10 @@ await pipe(
 A custom feed opens a pipe over a source of your own.
 
 ```typescript
-import { pipe } from '@metreeca/flow';
-import { items } from '@metreeca/flow/feeds';
-import { toArray } from '@metreeca/flow/sinks';
-import type { Feed } from '@metreeca/flow';
+import { pipe } from '@grafctory/flow';
+import { items } from '@grafctory/flow/feeds';
+import { toArray } from '@grafctory/flow/sinks';
+import type { Feed } from '@grafctory/flow';
 
 function repeat<V>(value: V, count: number): Feed<V> {
 	return items((async function* () {
@@ -610,7 +610,7 @@ await pipe(
 > [!NOTE]
 >
 > A custom feed is only required to honour the `Feed` contract, however it is assembled: handing the source to
-> [`items()`](https://metreeca.github.io/flow/functions/items.html) is the shortest route there, as the adapter takes
+> [`items()`](https://grafctory.github.io/flow/functions/items.html) is the shortest route there, as the adapter takes
 > the contract on, while a source that is already a feed honours it as it is. Whichever route is taken, a feed replays
 > only as far as its source does: see [Creating Feeds](#creating-feeds).
 
@@ -620,10 +620,10 @@ A custom task extends a pipe, consuming the items of a feed and reporting a new 
 written as an async generator handed to `items()`, with items to be dropped left unyielded.
 
 ```typescript
-import { pipe } from '@metreeca/flow';
-import { items } from '@metreeca/flow/feeds';
-import { toArray } from '@metreeca/flow/sinks';
-import type { Task } from '@metreeca/flow';
+import { pipe } from '@grafctory/flow';
+import { items } from '@grafctory/flow/feeds';
+import { toArray } from '@grafctory/flow/sinks';
+import type { Task } from '@grafctory/flow';
 
 function double<V extends number>(): Task<V, V> {
 	return source => items((async function* () {
@@ -641,7 +641,7 @@ await pipe(
 > [!NOTE]
 >
 > A custom task is only required to report a feed honouring the `Feed` contract, however it is obtained: handing the
-> generator object to [`items()`](https://metreeca.github.io/flow/functions/items.html) is the shortest route there,
+> generator object to [`items()`](https://grafctory.github.io/flow/functions/items.html) is the shortest route there,
 > while a transformation delegating to tasks already available composes the feed it draws from with them and reports
 > what they report, a feed already. A transformation deciding on the feed as a whole is spared the generator altogether
 > by `chain()`, which carries on with the items a mapper computes over it. The reported feed is drained by a single
@@ -654,9 +654,9 @@ to operations already available applies them to the feed it draws from, which is
 repeatable the source behind it.
 
 ```typescript
-import { pipe } from '@metreeca/flow';
-import { items } from '@metreeca/flow/feeds';
-import type { Sink } from '@metreeca/flow';
+import { pipe } from '@grafctory/flow';
+import { items } from '@grafctory/flow/feeds';
+import type { Sink } from '@grafctory/flow';
 
 function histogram<V>(): Sink<V, Map<V, number>> {
 	return async source => {
@@ -677,10 +677,10 @@ await pipe(
 
 # Support
 
-- open an [issue](https://github.com/metreeca/flow/issues) to report a problem or to suggest a new feature
-- start a [discussion](https://github.com/metreeca/flow/discussions) to ask a how-to question or to share an idea
+- open an [issue](https://github.com/grafctory/flow/issues) to report a problem or to suggest a new feature
+- start a [discussion](https://github.com/grafctory/flow/discussions) to ask a how-to question or to share an idea
 
 # License
 
 This project is licensed under the Apache 2.0 License –
-see [LICENSE](https://github.com/metreeca/flow?tab=Apache-2.0-1-ov-file) file for details.
+see [LICENSE](https://github.com/grafctory/flow?tab=Apache-2.0-1-ov-file) file for details.

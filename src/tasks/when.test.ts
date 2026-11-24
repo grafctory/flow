@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import { sleep } from "@metreeca/core/async";
-import { type Feed, pipe, type Task } from "@metreeca/flow";
-import { inlet, items } from "@metreeca/flow/feeds";
-import { toArray, toSet } from "@metreeca/flow/sinks";
-import { filter, map, take } from "@metreeca/flow/tasks";
+import { sleep } from "@grafctory/core/async";
+import { type Feed, pipe, type Task } from "@grafctory/flow";
+import { inlet, items } from "@grafctory/flow/feeds";
+import { toArray, toSet } from "@grafctory/flow/sinks";
+import { filter, map, take } from "@grafctory/flow/tasks";
 import { describe, expect, it, vi } from "vitest";
 import { when } from "./when.js";
 

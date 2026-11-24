@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import { sleep } from "@metreeca/core/async";
-import { type Feed, pipe } from "@metreeca/flow";
-import { items } from "@metreeca/flow/feeds";
-import { toArray } from "@metreeca/flow/sinks";
-import { distinct, filter, flat, map, take, trim } from "@metreeca/flow/tasks";
+import { sleep } from "@grafctory/core/async";
+import { type Feed, pipe } from "@grafctory/flow";
+import { items } from "@grafctory/flow/feeds";
+import { toArray } from "@grafctory/flow/sinks";
+import { distinct, filter, flat, map, take, trim } from "@grafctory/flow/tasks";
 import { describe, expect, it, vi } from "vitest";
 import { coalesce } from "./coalesce.js";
 

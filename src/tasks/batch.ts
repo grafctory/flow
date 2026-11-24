@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { assert } from "@metreeca/core";
+import { assert } from "@grafctory/core";
 import { Task } from "../index.js";
 import { items } from "../feeds/items.js";
 

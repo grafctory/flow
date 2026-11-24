@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import type { Awaitable } from "@metreeca/core/async";
-import { immutable } from "@metreeca/core/values";
+import type { Awaitable } from "@grafctory/core/async";
+import { immutable } from "@grafctory/core/values";
 import { Sink } from "../index.js";
 
 

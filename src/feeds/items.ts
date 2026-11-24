@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { isAsyncIterable, isFunction, isIterable, isString } from "@metreeca/core";
-import type { Awaitable, Awaitables } from "@metreeca/core/async";
+import { isAsyncIterable, isFunction, isIterable, isString } from "@grafctory/core";
+import type { Awaitable, Awaitables } from "@grafctory/core/async";
 import { Feed, Sink, Task } from "../index.js";
 
 

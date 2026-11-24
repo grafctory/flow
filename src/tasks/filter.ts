@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import type { Awaitable } from "@metreeca/core/async";
+import type { Awaitable } from "@grafctory/core/async";
 import { items } from "../feeds/items.js";
 import { Task } from "../index.js";
 
