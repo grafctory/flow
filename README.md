@@ -1,11 +1,15 @@
 # @grafctory/flow
 
-[![npm](https://img.shields.io/npm/v/@grafctory/flow)](https://www.npmjs.com/package/@grafctory/flow)
+[![npm][npm-badge]][npm]
+
+[npm-badge]: https://img.shields.io/npm/v/@grafctory/flow
+[npm]: https://www.npmjs.com/package/@grafctory/flow
+[grafctory]: https://github.com/grafctory
 
 Composable primitives for asynchronous data flows.
 
-**@grafctory/flow** replaces the boilerplate of async data processing with declarative data flows, read as one unit
-from source to result:
+**@grafctory/flow** is the data flow module of the [Grafctory][grafctory] model-driven knowledge graph framework. It
+replaces the boilerplate of async data processing with declarative data flows, read as one unit from source to result:
 
 - **Focused API**: small operator set covering the common async iterable operations and composing with a natural syntax
 - **Type Safety**: item types carried from the data source through every stage to the final result, never dictated by
@@ -684,3 +688,5 @@ await pipe(
 
 This project is licensed under the Apache 2.0 License –
 see [LICENSE](https://github.com/grafctory/flow?tab=Apache-2.0-1-ov-file) file for details.
+
+<sub>Grafctory™ is a trademark of Metreeca srl.</sub>
