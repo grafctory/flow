@@ -10,13 +10,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased](https://github.com/grafctory/flow/compare/v0.13.1...HEAD)
 
-## [0.13.1](https://github.com/metreeca/flow/compare/v0.13.0...v0.13.1) - 2026-11-24
+## [0.13.1](https://github.com/grafctory/flow/compare/v0.13.0...v0.13.1) - 2026-11-24
 
 ### Changed
 
 - Maintenance release with no change to the published API or behaviour
 
-## [0.13.0](https://github.com/metreeca/flow/compare/v0.12.0...v0.13.0) - 2026-11-17
+## [0.13.0](https://github.com/grafctory/flow/compare/v0.12.0...v0.13.0) - 2026-11-17
 
 ### Added
 
@@ -30,7 +30,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **Breaking**: Upgrade `@metreeca/core` to `^0.14.0`; projects using Core alongside this package raise their own
   `@metreeca/core` dependency to `^0.14.0` as well, so that both packages share a single copy of Core
 
-## [0.12.0](https://github.com/metreeca/flow/compare/v0.11.1...v0.12.0) - 2026-10-19
+## [0.12.0](https://github.com/grafctory/flow/compare/v0.11.1...v0.12.0) - 2026-10-19
 
 ### Added
 
@@ -41,7 +41,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Upgrade `@metreeca/core` to `^0.13.0`
 
-## [0.11.1](https://github.com/metreeca/flow/compare/v0.11.0...v0.11.1) - 2026-10-14
+## [0.11.1](https://github.com/grafctory/flow/compare/v0.11.0...v0.11.1) - 2026-10-14
 
 ### Changed
 
@@ -49,7 +49,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Published exports declare the `@metreeca/source` condition, resolving each entry point to its TypeScript source in
   checkouts linked for local development, while registry consumers keep resolving to the compiled `dist` modules
 
-## [0.11.0](https://github.com/metreeca/flow/compare/v0.10.0...v0.11.0) - 2026-10-01
+## [0.11.0](https://github.com/grafctory/flow/compare/v0.10.0...v0.11.0) - 2026-10-01
 
 ### Added
 
@@ -88,7 +88,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `tee` stalling on a branch running dry without closing the feed it was handed, as one reporting a fixed feed or
   drawing only part of the source: a branch running dry now drops out like one closing early, whether or not it drew
 
-## [0.10.0](https://github.com/metreeca/flow/compare/v0.9.21...v0.10.0) - 2026-09-09
+## [0.10.0](https://github.com/grafctory/flow/compare/v0.9.21...v0.10.0) - 2026-09-09
 
 ### Added
 
@@ -185,7 +185,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   composed on its own states the item type in the `Task` or `Sink` type it is declared under, or as an explicit type
   argument, rather than through an annotated function
 
-## [0.9.21](https://github.com/metreeca/flow/releases/tag/v0.9.21) - 2026-08-28
+## [0.9.21](https://github.com/grafctory/flow/releases/tag/v0.9.21) - 2026-08-28
 
 ### Added
 
