@@ -1,6 +1,6 @@
 {
   "name": "@grafctory/flow",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "description": "Composable primitives for asynchronous data flows.",
   "keywords": [
     "typescript",
